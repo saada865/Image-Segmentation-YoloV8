@@ -11,6 +11,12 @@ model = YOLO('yolov8n-seg.pt')
 
 @app.route('/segment', methods=['POST'])
 def segment_image():
+    """
+    This function is used to perform image segmentation on the user request image.
+
+    return:
+    This function sends the segmented image file to the user.
+    """
     if os.path.exists("runs/predict9/temp.jpg"):
         os.remove('runs/predict9/temp.jpg')
         shutil.rmtree('runs/predict9')
